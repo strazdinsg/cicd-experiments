@@ -13,5 +13,7 @@ Experiments with CI/CD pipelines (GitHub actions, etc.).
 - The `.github/workflows` directory must be repository-wide, placed in the root of the Git repo.
   I.e., you can't have multiple `.github` repositories, in sub-folders. You can, however, have
   subfolders inside the `.github/workflows` folder.
+- Step names can be written as strings using "names in double quotes"
+- 
 
 
