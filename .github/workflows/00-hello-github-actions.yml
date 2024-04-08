@@ -7,13 +7,13 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: "Checkout the source code"
         uses: actions/checkout@v4
-      - name: setup-node
+      - name: "Set up Node.js, version 20"
         uses: actions/setup-node@v4
         with:
             node-version: '20'
       - name: "Install bats"
         run: npm install -g bats
-      - name: bats-version
+      - name: "A dummy action: print version of `bats` testing framework"
         run: bats -v
