@@ -1,0 +1,12 @@
+name: "Non README updated"
+
+on:
+  push:
+    paths-ignore:
+      - "README.md"
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Something updated"
