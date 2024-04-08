@@ -1,7 +1,7 @@
 name: proof-of-concept
 run-name: ${{ github.actor }} is learning GitHub Actions
 
-on: [push]
+on: push
 
 jobs:
   check-bats-version:
