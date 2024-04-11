@@ -7,6 +7,8 @@ Experiments with CI/CD pipelines (GitHub actions, etc.).
 1. [00 Hello, GitHub Actions](/.github/workflows/00-hello-github-actions.yml) - a proof of concept.
 2. [01 No README](.github/workflows/01-no-readme.yml) - don't run the workflow when only README file
    changes.
+3. [02 Manually triggered]() - a workflow that is triggered on every commit in the main 
+   branch, but can also be triggered manually.
 
 ## Lessons learned
 
