@@ -12,5 +12,3 @@
           uses: actions/checkout@v4
         - name: Use local hello-world action
           uses: ./.github/actions/hello-world
-          with:
-            who-to-greet: Chuck
