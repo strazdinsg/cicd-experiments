@@ -25,14 +25,13 @@ Experiments with CI/CD pipelines (GitHub actions, etc.).
   subfolders inside the `.github/workflows` folder.
 - Step names can be written as strings using "names in double quotes", or simply the name
   without any quotes:
-
 ```yaml
 steps:
   - name: Clone repository
     uses: actions/checkout@v4
 #   ...
 ```
-
-- 
+- When specifying which paths to include in a `push` event, use the `**` syntax, for example:
+    `paths: [ 'hello-java/**' ]`.
 
 
