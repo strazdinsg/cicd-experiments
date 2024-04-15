@@ -13,6 +13,10 @@ Experiments with CI/CD pipelines (GitHub actions, etc.).
    and used in the workflow.
 5. [04 Share file](.github/workflows/04-share-file.yml) - Share a file between two jobs using GitHub
    artifact storage.
+6. [05 Maven Tests](.github/workflows/05-maven-tests.yml) - Run unit tests for a Maven Java app.
+7. [06 Java Azure App Service deploy](.github/workflows/06-java-azure-app-service.yml) - Build a
+   Java Spring Boot with Maven, deploy it on
+   [Azure App Service](https://azure.microsoft.com/en-us/products/app-service).
 
 ## Lessons learned
 

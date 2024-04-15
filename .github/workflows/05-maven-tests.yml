@@ -1,0 +1,22 @@
+name: Run tests with Maven
+
+on:
+  push:
+    branches: [ master ]
+    paths: [ hello-java ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the source
+        uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Run tests with Maven
+        run: cd hello-java && mvn test
