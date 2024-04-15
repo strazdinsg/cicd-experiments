@@ -3,7 +3,7 @@ name: Run tests with Maven
 on:
   push:
     branches: [ master ]
-    paths: [ hello-java ]
+    paths: [ 'hello-java/**' ]
   workflow_dispatch:
 
 jobs:
