@@ -1,7 +1,7 @@
 package no.strazdins;
 
 /**
- * A class for creating greetings.
+ * Creates greetings.
  */
 public class Greeting {
   /**
