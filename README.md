@@ -9,6 +9,7 @@ Experiments with CI/CD pipelines (GitHub actions, etc.).
    changes.
 3. [02 Manually triggered]() - a workflow that is triggered on every commit in the main 
    branch, but can also be triggered manually.
+4. [03 Use custom actions] - a custom action defined and used in the workflow. 
 
 ## Lessons learned
 
