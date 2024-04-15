@@ -1,3 +1,6 @@
+  name: Run our custom hello world
+  run-name: Run local action
+
   on:
     - push
     - workflow_dispatch

@@ -1,14 +1,6 @@
 name: Hello World
 author: girts
 description: A simple Hello World
-inputs:
-  who-to-greet:
-    description: Who to greet
-    required: true
-    default: World
-outputs:
-  time:
-    description: The time of the greeting
 
 runs:
   using: 'node20'
