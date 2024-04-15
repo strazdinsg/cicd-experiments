@@ -1,0 +1,28 @@
+name: Share a file between jobs
+run-name: Share file as artifact
+
+on:
+  workflow_dispatch
+
+jobs:
+  file-saving-job:
+    name: Save output
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: expr 1 + 1 > output.log
+      - name: Upload output file
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-log-file
+          path: output.log
+  file-downloading-job:
+    needs: file-saving-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: output-log-file
+      - name: Print output of the downloaded artifact
+        run: cat output.log
