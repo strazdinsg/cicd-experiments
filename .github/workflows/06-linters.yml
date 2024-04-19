@@ -22,7 +22,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Run CheckStyle
-        run: mvn checkstyle:check -Dcheckstyle.config.location=google_checks.xml
+        run: mvn -B checkstyle:check -Dcheckstyle.config.location=google_checks.xml
       - name: Use CheckStyle output in commit annotation
         uses: lcollins/checkstyle-github-action@v2.0.0
         with:
