@@ -1,0 +1,29 @@
+name: Run CheckStyle and SonarLint
+
+on:
+  push:
+    paths:
+      - hello-java
+  workflow_dispatch:
+
+jobs:
+  linters:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'correto'
+          cache: maven
+      - name: Run CheckStyle
+        uses: dbelyaev/action-checkstyle@master
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          level: error
+          checkstyle_config: google_checks.xml
+          workdir: hello-java
+# TBD - SonarLint
