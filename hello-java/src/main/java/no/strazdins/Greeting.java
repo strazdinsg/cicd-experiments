@@ -1,6 +1,9 @@
 package no.strazdins;
 
 public class Greeting {
+  /**
+   * Not allowed to instantiate the object.
+   */
   private Greeting() {
   }
 
