@@ -8,6 +8,9 @@ on:
 jobs:
   linters:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hello-java
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -22,5 +25,5 @@ jobs:
       - name: Use CheckStyle output in commit annotation
         uses: lcollins/checkstyle-github-action@v2.0.0
         with:
-          path: hello-java/target/checkstyle-result.xml
+          path: target/checkstyle-result.xml
 # TBD - SonarLint
