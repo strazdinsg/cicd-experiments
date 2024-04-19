@@ -18,11 +18,9 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Run CheckStyle
-        uses: dbelyaev/action-checkstyle@master
+        run: mvn checkstyle:check -Dcheckstyle.config.location=google_checks.xml
+      - name: Use CheckStyle output in commit annotation
+        uses: lcollins/checkstyle-github-action@v2.0.0
         with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review
-          level: error
-          checkstyle_config: google_checks.xml
-          workdir: hello-java
+          path: hello-java/target/checkstyle-result.xml
 # TBD - SonarLint
