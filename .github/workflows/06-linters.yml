@@ -25,5 +25,5 @@ jobs:
       - name: Use CheckStyle output in commit annotation
         uses: lcollins/checkstyle-github-action@v2.0.0
         with:
-          path: target/checkstyle-result.xml
+          path: hello-java/target/checkstyle-result.xml
 # TBD - SonarLint
