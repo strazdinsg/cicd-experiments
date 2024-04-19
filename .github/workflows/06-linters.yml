@@ -2,8 +2,7 @@ name: Run CheckStyle and SonarLint
 
 on:
   push:
-    paths:
-      - hello-java
+    paths: [ 'hello-java/**' ]
   workflow_dispatch:
 
 jobs:
