@@ -16,9 +16,17 @@ Experiments with CI/CD pipelines (GitHub actions, etc.).
 6. [05 Maven Tests](.github/workflows/05-maven-tests.yml) - Run unit tests for a Maven Java app.
 7. [06 CheckStyle and SonarLint linters](.github/workflows/06-linters.yml) - Run CheckStyle and
    SonarLint linters for the code structure.
-8. [10 Java Azure App Service deploy](.github/workflows/10-java-azure-app-service.yml) - Build a
+8. [07 Java Azure App Service deploy](.github/workflows/07-java-azure-app-service.yml) - Build a
    Java Spring Boot with Maven, deploy it on
    [Azure App Service](https://azure.microsoft.com/en-us/products/app-service).
+9. [08 Java deploy on custom service](.github/workflows/08-java-on-custom-server.yml) - Build a 
+   Java Spring Boot app with Maven, deploy it on a custom Ubuntu Linux server.
+10. [09 Flutter app](.github/workflows/09-flutter-app.yml) - Package a Flutter app to an 
+    Android APK.
+11. [10 Flutter multi-platform](.github/workflows/10-flutter-multi-platform.yml) - Package a 
+    Flutter app to Web, Android and iOS, using multi-platform build, with parallel runners.
+12. [11 Publish to Docker](.github/workflows/11-publish-to-docker.yml) - Build a Docker image, 
+    publish it to DockerHub.
 
 ## Lessons learned
 
