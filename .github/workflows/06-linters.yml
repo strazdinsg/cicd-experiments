@@ -21,10 +21,31 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
       - name: Run CheckStyle
         run: mvn -B checkstyle:check -Dcheckstyle.config.location=google_checks.xml
       - name: Use CheckStyle output in commit annotation
         uses: lcollins/checkstyle-github-action@v2.0.0
         with:
           path: hello-java/target/checkstyle-result.xml
-# TBD - SonarLint
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+         projectBaseDir: hello-java
+         args: >
+           -Dsonar.organization=strazdinsg
+           -Dsonar.projectKey=strazdinsg_cicd-experiments
