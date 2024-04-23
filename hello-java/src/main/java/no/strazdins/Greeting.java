@@ -20,7 +20,6 @@ public class Greeting {
     if (name == null || name.isEmpty()) {
       name = "World";
     }
-    System.out.println("This is an undesired console log, should be caught by SonarLint...");
     return "Hello " + name + "!";
   }
 }
