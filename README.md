@@ -49,3 +49,11 @@ steps:
 - For SonarLint you need to set up a project on SonarCloud,
   see [instructions in the GitHub action README](https://github.com/SonarSource/sonarcloud-github-action?tab=readme-ov-file#requirements).
 
+- Deployment to Azure AppService is easier if one allows Azure to create the workflow file (when
+  setting up CI/CD in the Azure portal). Alternatively, use the `publish-profile` approach, as
+  described
+  [here](https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions#set-up-a-github-actions-workflow-manually)
+  In short: Go to the AppService in the Azure Portal > Overview > Download Publish Profile, save the
+  whole content of that file as a GitHub Secret in your repo named
+  `AZURE_WEBAPP_PUBLISH_PROFILE`, see the
+  [workflow yaml file](.github/workflows/07-java-azure-app-service.yml).  
