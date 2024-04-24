@@ -3,3 +3,5 @@
 node_modules
 
 hello-java/target
+
+rest-api/target/
