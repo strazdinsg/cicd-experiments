@@ -56,4 +56,4 @@ steps:
   In short: Go to the AppService in the Azure Portal > Overview > Download Publish Profile, save the
   whole content of that file as a GitHub Secret in your repo named
   `AZURE_WEBAPP_PUBLISH_PROFILE`, see the
-  [workflow yaml file](.github/workflows/07-java-azure-app-service.yml).  
+  [workflow yaml file](.github/workflows/07-java-azure-app-service.yml#L50).  
