@@ -3,7 +3,7 @@ name: Deploy Java app on Azure App Service
 on:
   push:
     branches: ["master"]
-    paths: ["rest-api"]
+    paths: ["rest-api/**"]
   workflow_dispatch:
 
 jobs:
