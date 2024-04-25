@@ -56,4 +56,17 @@ steps:
   In short: Go to the AppService in the Azure Portal > Overview > Download Publish Profile, save the
   whole content of that file as a GitHub Secret in your repo named
   `AZURE_WEBAPP_PUBLISH_PROFILE`, see the
-  [workflow yaml file](.github/workflows/07-java-azure-app-service.yml#L50).  
+  [workflow yaml file](.github/workflows/07-java-azure-app-service.yml#L50).
+
+## Necessary Secrets
+
+If you clone this repository and want to try the example actions, you will need to set up tne
+following [secrets for the GitHub repository](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions):
+
+- `SONAR_TOKEN` - [token for SonarCloud](https://sonarcloud.io/account/security)
+- `AZURE_WEBAPP_PUBLISH_PROFILE` - access information
+  for [Azure AppService](https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions#set-up-a-github-actions-workflow-manually).
+- SSH deployment related secrets for [Example 08](.github/workflows/08-java-on-custom-server.yml):
+    - `SSH_HOST` - hostname or IP address of the server
+    - `SSH_USER` - username of the deployment user
+    - `SSH_PRIVATE_KEY` - private key for the deployment user

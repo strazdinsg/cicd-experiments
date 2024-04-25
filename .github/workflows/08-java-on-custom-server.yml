@@ -1,0 +1,56 @@
+name: Deploy a Java app on a custom server
+
+on:
+  push:
+    paths: [ "rest-api/**" ]
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rest-api
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-app
+          path: '${{github.workspace}}/rest-api/target/*.jar'
+
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: java-app
+
+      - name: Install SSH key
+        run:
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          ssh-keyscan -H ${{secrets.SSH_HOST}} > ~/.ssh/known_hosts
+
+      - name: Copy the artifact to the server
+        run: scp java-app.jar ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}}
+
+      - name: Restart the app on the server
+        run: TODO
