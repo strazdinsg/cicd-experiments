@@ -50,7 +50,7 @@ jobs:
           username: ${{secrets.SSH_USER}}
           key: ${{secrets.SSH_PRIVATE_KEY}}
           source: "*.jar"
-          target: java-app.jar
+          target: ${{secrets.SSH_TARGET_PATH}}
 
       # TODO
       #- name: Restart the app on the server

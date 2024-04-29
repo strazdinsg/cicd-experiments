@@ -70,3 +70,4 @@ following [secrets for the GitHub repository](https://docs.github.com/en/actions
     - `SSH_HOST` - hostname or IP address of the server
     - `SSH_USER` - username of the deployment user
     - `SSH_PRIVATE_KEY` - private key for the deployment user
+    - `SSH_TARGET_PATH` - target directory where to put the JAR file
