@@ -62,4 +62,4 @@ jobs:
           script: |
             pwd
             sudo pkill -f "java -jar hello"
-            nohup sudo java -jar hello*.jar
+            nohup sudo java -jar hello*.jar &
