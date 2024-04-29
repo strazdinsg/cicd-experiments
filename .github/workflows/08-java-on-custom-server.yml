@@ -1,4 +1,4 @@
-name: Deploy a Java app on a custom server
+name: Deploy Java app on a custom server
 
 on:
   push:
@@ -43,14 +43,14 @@ jobs:
         with:
           name: java-app
 
-      - name: Install SSH key
-        run:
-          install -m 600 -D /dev/null ~/.ssh/id_rsa
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          ssh-keyscan -H ${{secrets.SSH_HOST}} > ~/.ssh/known_hosts
-
       - name: Copy the artifact to the server
-        run: scp java-app.jar ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}}
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USER}}
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          source: java-app.jar
+          target: java-app.jar
 
       # TODO
       #- name: Restart the app on the server
