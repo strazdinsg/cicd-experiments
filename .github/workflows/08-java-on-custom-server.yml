@@ -63,3 +63,4 @@ jobs:
             pwd
             sudo pkill -f "java -jar hello"
             nohup sudo java -jar hello*.jar &
+            sleep 10
