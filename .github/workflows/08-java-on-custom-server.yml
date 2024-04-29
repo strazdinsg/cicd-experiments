@@ -52,5 +52,6 @@ jobs:
       - name: Copy the artifact to the server
         run: scp java-app.jar ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}}
 
-      - name: Restart the app on the server
-        run: TODO
+      # TODO
+      #- name: Restart the app on the server
+      #  run: TODO
