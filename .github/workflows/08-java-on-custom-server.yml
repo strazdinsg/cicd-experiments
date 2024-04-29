@@ -52,6 +52,14 @@ jobs:
           source: "*.jar"
           target: ${{secrets.SSH_TARGET_PATH}}
 
-      # TODO
-      #- name: Restart the app on the server
-      #  run: TODO
+      - name: Restart the app on the server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USER}}
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          script_stop: true
+          script: |
+            pwd
+            sudo pkill -f "java -jar hello"
+            nohup sudo java -jar hello*.jar
