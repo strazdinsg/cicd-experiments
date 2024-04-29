@@ -60,9 +60,9 @@ jobs:
           key: ${{secrets.SSH_PRIVATE_KEY}}
           script_stop: false
           script: |
+            sudo pkill -f "java -jar hello"
+            sleep 3
             ls
-            ls hello*.jar
-
 
 
 
