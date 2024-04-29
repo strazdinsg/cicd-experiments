@@ -4,29 +4,37 @@ Experiments with CI/CD pipelines (GitHub actions, etc.).
 
 ## Projects
 
-1. [00 Hello, GitHub Actions](/.github/workflows/00-hello-github-actions.yml) - a proof of concept.
-2. [01 No README](.github/workflows/01-no-readme.yml) - don't run the workflow when only README file
+1. [Hello, GitHub Actions](/.github/workflows/00-hello-github-actions.yml) - a proof of concept.
+2. [No README](.github/workflows/01-no-readme.yml) - don't run the workflow when only README file
    changes.
-3. [02 Manually triggered]() - a workflow that is triggered on every commit in the main branch, but
+3. [Manually triggered]() - a workflow that is triggered on every commit in the main branch, but
    can also be triggered manually.
-4. [03 Use custom actions](.github/workflows/03-reuse-local-action.yml) - a custom action defined
+4. [Use custom actions](.github/workflows/03-reuse-local-action.yml) - a custom action defined
    and used in the workflow.
-5. [04 Share file](.github/workflows/04-share-file.yml) - Share a file between two jobs using GitHub
+5. [Share file](.github/workflows/04-share-file.yml) - Share a file between two jobs using GitHub
    artifact storage.
-6. [05 Maven Tests](.github/workflows/05-maven-tests.yml) - Run unit tests for a Maven Java app.
-7. [06 CheckStyle and SonarLint linters](.github/workflows/06-linters.yml) - Run CheckStyle and
+6. [Maven Tests](.github/workflows/05-maven-tests.yml) - Run unit tests for a Maven Java app.
+7. [CheckStyle and SonarLint linters](.github/workflows/06-linters.yml) - Run CheckStyle and
    SonarLint linters for the code structure.
-8. [07 Java Azure App Service deploy](.github/workflows/07-java-azure-app-service.yml) - Build a
+8. [Java Azure App Service deploy](.github/workflows/07-java-azure-app-service.yml) - Build a
    Java Spring Boot with Maven, deploy it on
    [Azure App Service](https://azure.microsoft.com/en-us/products/app-service).
-9. [08 Java deploy on custom service](.github/workflows/08-java-on-custom-server.yml) - Build a Java
-   Spring Boot app with Maven, deploy it on a custom Ubuntu Linux server.
-10. [09 Flutter app](.github/workflows/09-flutter-app.yml) - Package a Flutter app to an Android
-    APK.
-11. [10 Flutter multi-platform](.github/workflows/10-flutter-multi-platform.yml) - Package a Flutter
-    app to Web, Android and iOS, using multi-platform build, with parallel runners.
-12. [11 Publish to Docker](.github/workflows/11-publish-to-docker.yml) - Build a Docker image,
+9. [Java deploy with systemctl](.github/workflows/08-java-on-custom-server.yml) - Build a Java
+   Spring Boot app with Maven, deploy it on a custom Ubuntu Linux server as a system service 
+   with `systemctl`.
+10. [Publish to Docker](.github/workflows/09-publish-to-docker.yml) - Build a Docker image,
     publish it to DockerHub.
+11. [Java deploy with Docker](.github/workflows/10-java-with-docker.yml) - 
+    Build a Java Spring Boot app with Maven, deploy it on a custom Ubuntu Linux server using 
+    Docker and DockerHub.
+12. [Java deploy with Supervisor](.github/workflows/11-java-with-supervisor.yml) - 
+    Build a Java Spring Boot app with Maven, deploy it on a custom Ubuntu Linux server using 
+    [Supervisor](http://supervisord.org/).
+13. [Flutter app](.github/workflows/101-flutter-app.yml) - Package a Flutter app to an Android
+    APK.
+14. [Flutter multi-platform](.github/workflows/102-flutter-multi-platform.yml) - Package a Flutter
+    app to Web, Android and iOS, using multi-platform build, with parallel runners.
+
 
 ## Lessons learned
 
