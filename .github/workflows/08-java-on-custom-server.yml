@@ -60,6 +60,7 @@ jobs:
           key: ${{secrets.SSH_PRIVATE_KEY}}
           script_stop: false
           script: |
+            ls
             ls hello*.jar
 
 
