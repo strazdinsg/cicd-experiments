@@ -13,7 +13,7 @@
 	<name>hello</name>
 	<description>Do one thing and one thing only: serve an HTTP GET / endpoint</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
