@@ -72,10 +72,14 @@ following [secrets for the GitHub repository](https://docs.github.com/en/actions
 - `AZURE_WEBAPP_PUBLISH_PROFILE` - access information
   for [Azure AppService](https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions#set-up-a-github-actions-workflow-manually).
 - SSH deployment related secrets for [Example 08](.github/workflows/08-java-on-custom-server.yml):
-    - `SSH_HOST` - hostname or IP address of the server
-    - `SSH_USER` - username of the deployment user
-    - `SSH_PRIVATE_KEY` - private key for the deployment user
-    - `SSH_TARGET_PATH` - target directory where to put the JAR file
+  - `SSH_HOST` - hostname or IP address of the server
+  - `SSH_USER` - username of the deployment user
+  - `SSH_PRIVATE_KEY` - private key for the deployment user
+  - `SSH_TARGET_PATH` - target directory where to put the JAR file
+- For DockerHub:
+  - `DOCKERHUB_USERNAME` - username
+  - `DOCKERHUB_TOKEN` - [personal access token](https://docs.docker.com/docker-hub/access-tokens/)
+  - `DOCKERHUB_REPOSITORY` - name of the repository on DockerHub
 
 ## Restarting your app with `systemd`
 
