@@ -71,27 +71,32 @@ following [secrets for the GitHub repository](https://docs.github.com/en/actions
 - `SONAR_TOKEN` - [token for SonarCloud](https://sonarcloud.io/account/security)
 - `AZURE_WEBAPP_PUBLISH_PROFILE` - access information
   for [Azure AppService](https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions#set-up-a-github-actions-workflow-manually).
+- `AZURE_FUNCTION_PUBLISH_PROFILE` - access information
+  for [Azure Function](https://learn.microsoft.com/en-us/azure/azure-functions/functions-how-to-github-actions).
 - SSH deployment related secrets for [Example 08](.github/workflows/08-java-on-custom-server.yml):
-  - `SSH_HOST` - hostname or IP address of the server
-  - `SSH_USER` - username of the deployment user
-  - `SSH_PRIVATE_KEY` - private key for the deployment user
-  - `SSH_TARGET_PATH` - target directory where to put the JAR file
+    - `SSH_HOST` - hostname or IP address of the server
+    - `SSH_USER` - username of the deployment user
+    - `SSH_PRIVATE_KEY` - private key for the deployment user
+    - `SSH_TARGET_PATH` - target directory where to put the JAR file
 - For DockerHub:
-  - `DOCKERHUB_USERNAME` - username
-  - `DOCKERHUB_TOKEN` - [personal access token](https://docs.docker.com/docker-hub/access-tokens/)
-  - `DOCKERHUB_REPOSITORY` - name of the repository on DockerHub
+    - `DOCKERHUB_USERNAME` - username
+    - `DOCKERHUB_TOKEN` - [personal access token](https://docs.docker.com/docker-hub/access-tokens/)
+    - `DOCKERHUB_REPOSITORY` - name of the repository on DockerHub
 
 ## Restarting your app with `systemd`
 
 In
 the [example where we deploy an app with `systemctl`](.github/workflows/08-java-on-custom-server.yml),
 you need to first register your app as a service for the `systemd`. To do that:
+
 1. Describe the service in a config file `/etc/systemd/system/my-java-app.service`.
 2. Reload the `systemd` and start the service.
 3. Enable the service on reboot.
 
 ### Service configuration file
+
 Save the following content in `/etc/systemd/system/my-java-app.service`:
+
 ```ini
 [Unit]
 Description=My Custom Java Server App
@@ -108,22 +113,26 @@ WantedBy=multi-user.target
 ```
 
 ### Reloading `systemd`
+
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start my-java-app.service
 ```
 
 ### Enabling the service on reboot
+
 ```bash
 sudo systemctl enable my-java-app.service
 ```
 
 ### Check whether the service is live
+
 ```bash
 sudo systemctl status my-java-app.service
 ```
 
 ### Restart the service
+
 ```bash
 sudo systemctl restart my-java-app.service
 ```
