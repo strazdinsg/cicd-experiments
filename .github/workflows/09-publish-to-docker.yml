@@ -89,4 +89,4 @@ jobs:
             cd ${{ secrets.SSH_WORKING_TARGET_PATH }}
             sudo docker stop hello-java || true
             sudo docker rm hello-java || true
-            sudo docker run -d -p 80:80 --name hello-java ${{secrets.DOCKERHUB_USERNAME}}/hello-java:latest
+            sudo docker run -d -p 8080:8080 --name hello-java ${{secrets.DOCKERHUB_USERNAME}}/hello-java:latest
