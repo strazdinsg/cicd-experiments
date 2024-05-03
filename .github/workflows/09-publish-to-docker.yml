@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - 'rest-api/**'
+      - 'docker-rest-api/**'
       - '.github/workflows/09-publish-to-docker.yml'
     tags: [ 'v*' ]
   workflow_dispatch:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: rest-api
+        working-directory: docker-rest-api
 
     steps:
       - name: Checkout
@@ -41,8 +41,8 @@ jobs:
         with:
           name: java-app-for-container
           path: |
-            rest-api/target/hello.jar
-            rest-api/Dockerfile
+            docker-rest-api/hello.jar
+            docker-rest-api/Dockerfile
 
   upload-to-dockerhub:
     needs: build
@@ -52,7 +52,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: java-app-for-container
-          path: rest-api
+          path: docker-rest-api
 
       - name: Login to DockerHub
         uses: docker/login-action@v3
@@ -69,7 +69,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: rest-api
+          context: docker-rest-api
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -79,7 +79,7 @@ jobs:
     needs: upload-to-dockerhub
     runs-on: ubuntu-latest
     steps:
-      - name: Log into the Ubuntu server with SSH
+      - name: Restart the container on the server over SSH
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
