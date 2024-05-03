@@ -1,11 +1,8 @@
 name: Deploy to DockerHub and restart on a server
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'docker-rest-api/**'
-      - '.github/workflows/09-publish-to-docker.yml'
+    branches: [main]
+    paths: ['docker-rest-api/**', '.github/workflows/09-publish-to-docker.yml']
   workflow_dispatch:
 
 jobs:
