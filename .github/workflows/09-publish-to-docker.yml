@@ -41,7 +41,7 @@ jobs:
         with:
           name: java-app-for-container
           path: |
-            docker-rest-api/hello.jar
+            docker-rest-api/target/hello.jar
             docker-rest-api/Dockerfile
 
   upload-to-dockerhub:
