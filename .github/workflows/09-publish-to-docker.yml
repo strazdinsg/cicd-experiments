@@ -60,19 +60,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Cache Docker layers
-        uses: actions/cache@v4
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: ${{ runner.os }}-buildx
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
           context: docker-rest-api
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/hello-java:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   deploy:
     name: Restart the container on the server
