@@ -52,6 +52,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: java-app-for-container
+          path: rest-api
 
       - name: Login to DockerHub
         uses: docker/login-action@v3
