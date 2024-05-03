@@ -6,7 +6,6 @@ on:
     paths:
       - 'docker-rest-api/**'
       - '.github/workflows/09-publish-to-docker.yml'
-    tags: [ 'v*' ]
   workflow_dispatch:
 
 jobs:
