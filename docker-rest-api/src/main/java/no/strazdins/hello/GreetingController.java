@@ -16,7 +16,7 @@ public class GreetingController {
      */
     @GetMapping("/")
     public String greeting() {
-        return "Ieraudzīsi, sapratīsi!";
+        return "Ieraudzīsi, iepazīsi!";
     }
 }
 
