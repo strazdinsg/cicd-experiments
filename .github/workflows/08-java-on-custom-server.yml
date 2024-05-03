@@ -27,11 +27,17 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
+      - name: Copy the JAR to hello.jar
+        run: |
+          cd target
+          cp hello*.jar hello.jar
+          cd ..
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: '${{github.workspace}}/rest-api/target/*.jar'
+          path: '${{github.workspace}}/rest-api/target/hello.jar'
 
 
   deploy:
@@ -49,7 +55,7 @@ jobs:
           host: ${{secrets.SSH_HOST}}
           username: ${{secrets.SSH_USER}}
           key: ${{secrets.SSH_PRIVATE_KEY}}
-          source: "*.jar"
+          source: "hello.jar"
           target: ${{secrets.SSH_TARGET_PATH}}
 
       - name: Restart the app on the server
@@ -59,14 +65,4 @@ jobs:
           username: ${{secrets.SSH_USER}}
           key: ${{secrets.SSH_PRIVATE_KEY}}
           script_stop: false
-          script: |
-            sudo pkill -f "java -jar hello"
-            sleep 3
-            ls
-
-
-
-
-#            sudo pkill -f "java -jar hello"
-#            nohup sudo java -jar hello*.jar &
-#            sleep 10
+          script: sudo systemctl restart my-java-app.service
