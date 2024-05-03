@@ -12,6 +12,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rest-api
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
