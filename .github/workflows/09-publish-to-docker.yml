@@ -71,8 +71,7 @@ jobs:
         with:
           context: docker-rest-api
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: latest
 
   deploy:
     name: Restart the container on the server
