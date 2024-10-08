@@ -59,7 +59,7 @@ jobs:
           target: ${{secrets.SSH_TARGET_PATH}}
 
       - name: Restart the app on the server
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@v1.1.0
         with:
           host: ${{secrets.SSH_HOST}}
           username: ${{secrets.SSH_USER}}
